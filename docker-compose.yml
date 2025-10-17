@@ -1,0 +1,20 @@
+
+services:
+  mysqldb:
+    image: mysql:8.0       # use 8.0 ou 8.4, mas evite versões beta instáveis
+    container_name: mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=senha
+      - MYSQL_DATABASE=public
+    ports:
+      - "3306:3306"
+    restart: always
+    # volumes internos do Docker
+    volumes:
+      - mysqlVolume:/var/lib/mysql          # dados persistentes dentro do Docker
+      - mysqlConfig:/etc/mysql              # dados de configuração dentro do docker
+
+# volumes nomeados do Docker
+volumes:
+  mysqlVolume:
+  mysqlConfig: 
