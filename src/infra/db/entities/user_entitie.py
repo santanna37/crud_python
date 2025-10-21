@@ -10,3 +10,6 @@ class UsersEntitie(Base):
     id = Column(Integer, primary_key= True, autoincrement= True)
     name = Column(String(100))
     email = Column(String(50))
+
+    def __repr__(self) -> str:
+        return f"User: [id = {self.id}, name = {self.name}, email = {self.email}]"
