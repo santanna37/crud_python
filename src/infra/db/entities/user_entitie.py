@@ -3,7 +3,7 @@ from src.infra.db.setting.base import Base
 
 
 
-class UsersEntitie(Base):
+class UserEntitie(Base):
 
     __tablename__ = 'users'
 

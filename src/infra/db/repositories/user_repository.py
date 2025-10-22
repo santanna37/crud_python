@@ -1,17 +1,19 @@
 from src.infra.db.setting.connection import DBConectionHandler
-from src.infra.db.entities.user_entitie import UsersEntitie
+from src.infra.db.entities.user_entitie import UserEntitie
+from src.domain.models.user_model import UserModel
+from src.data.interfaces.user_repository_interface import UsersRepositoryInterface
 
 from typing import List
 
 
-class UsersRepository:
+class UsersRepository(UsersRepositoryInterface):
 
-    @classmethod
-    def insert_user(cls, name: str, email:str) -> None:
+
+    def insert_user(self, name: str, email:str) -> None: # ignore
         
         with DBConectionHandler() as database:
             try:
-                new_user = UsersEntitie(
+                new_user = UserEntitie(
                     name = name,
                     email = email
                 )
@@ -28,17 +30,16 @@ class UsersRepository:
                 print("acabou")
                 database.close()
 
-    @classmethod
-    def select_user(cls,name:str) -> List[UsersEntitie]:
+    def select_user(self, name:str) -> List[UserModel]:
 
         with DBConectionHandler() as database: 
             try:
                 users = ( 
-                    database.query(UsersEntitie)
-                    .filter(UsersEntitie.name == name)
+                    database.query(UserEntitie)
+                    .filter(UserEntitie.name == name)
                     .all()
                 )
-                return users
+                return users 
 
             except Exception as exception:
                 database.rollback()

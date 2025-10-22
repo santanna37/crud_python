@@ -1,0 +1,38 @@
+{
+    // 👀 Esconde pastas e arquivos desnecessários no VS Code Explorer
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/.ruff_cache": true,
+        "**/.venv": true,
+        "**/.idea": true,
+        "**/.vscode": false
+    },
+
+    // 🧹 Formatação automática e estilo do Python
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+
+    // 🧠 Tipagem e linting
+    "python.analysis.typeCheckingMode": "basic",
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": true,
+
+    // 🧪 Configuração para testes (pytest)
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "src/test"
+    ],
+
+    // 🧰 Terminal integrado
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+    },
+
+    // 🌈 Aparência
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula Theme"
+}

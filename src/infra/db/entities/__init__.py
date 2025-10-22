@@ -1,1 +1,1 @@
-from .user_entitie import UsersEntitie
+from .user_entitie import UserEntitie
