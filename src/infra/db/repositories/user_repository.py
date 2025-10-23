@@ -19,7 +19,7 @@ class UsersRepository(UsersRepositoryInterface):
                 )
                 database.add(new_user)
                 database.commit()
-                print(new_user) # retire depois 
+                print(new_user) # retire depois
 
             except Exception as exception:
                 database.rollback()
@@ -30,7 +30,7 @@ class UsersRepository(UsersRepositoryInterface):
                 print("acabou")
                 database.close()
 
-    def select_user(self, name:str) -> List[UserModel]:
+    def select_user(self, name:str) -> List:
 
         with DBConectionHandler() as database: 
             try:
@@ -39,7 +39,7 @@ class UsersRepository(UsersRepositoryInterface):
                     .filter(UserEntitie.name == name)
                     .all()
                 )
-                return users 
+                return users
 
             except Exception as exception:
                 database.rollback()

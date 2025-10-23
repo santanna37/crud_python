@@ -10,4 +10,4 @@ class UsersRepositoryInterface(ABC):
     def insert_user(self, name:str, email:str) -> None: pass
 
     @abstractmethod
-    def select_user(self, name:str) -> List[UserModel]: pass
+    def select_user(self, name:str) -> List: pass
